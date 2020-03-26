@@ -30,20 +30,34 @@ env:
     HZERO_OAUTH_DEVICE_ID_PARAMETER: device_id
     # 登录设备来源参数
     HZERO_OAUTH_SOURCE_TYPE_PARAMETER: source_type
-    # web端用户是否只允许在一处登录
-    HZERO_OAUTH_ENABLE_WEB_SINGLE_USER_LOGIN: false
-    # 移动端用户是否允许在一处登录
-    HZERO_OAUTH_ENABLE_APP_SINGLE_DEVICE_LOGIN: false
+    # 移动端开启图形验证码校验，默认不开启
+    HZERO_OAUTH_ENABLE_APP_CAPTCHA: false
+    # 始终开启图形验证码校验，默认否
+    HZERO_OAUTH_ENABLE_ALWAYS_CAPTCHA: false
     # 标题
     HZERO_OAUTH_TITLE: HZERO
+    # 版权信息
+    HZERO_OAUTH_COPYRIGHT: Copyright © The HZERO Author®. All rights reserved.
+    # Logo URL
+    HZERO_OAUTH_LOGO_URL: /oauth/static/main/img/logo.svg
+    # 登录页面默认语言
+    HZERO_OAUTH_DEFAULT_LANGUAGE: zh_CN
+    # 是否显示切换语言
+    HZERO_OAUTH_SHOW_LANGUAGE: true
+    #网关是否启用https
+    HZERO_OAUTH_LOGIN_ENABLE_HTTPS: false
+    #开放给外部的oauth网关地址，支持https
+    HZERO_OAUTH_LOGIN_GATEWAY_DOMAIN: http://dev.hzero.org:8080/oauth
     # 允许使用的登录名，默认有 用户名、邮箱、手机号
     HZERO_OAUTH_LOGIN_SUPPORT_FIELDS: username,email,phone
     # 前端默认模板
-    HZERO_OAUTH_LOGIN_DEFAULT_TEMPLATE: main
+    HZERO_OAUTH_LOGIN_DEFAULT_TEMPLATE: slide
     # 默认登录成功跳转地址
     HZERO_OAUTH_LOGIN_SUCCESS_URL: http://dev.hzero.org/workplace
     # 退出时是否清理token
     HZERO_OAUTH_LOGOUT_CLEAR_TOKEN: true
+    # 启用二级域名单点登录
+    HZERO_OAUTH_SSO_ENABLED: true
     # 数据库所有者模式，例如 SqlServer 下的 dbo/guest
     HZERO_DB_OWNER:
     # Eureka 注册中心地址
@@ -125,11 +139,3 @@ resources:
   requests:
     # cpu: 100m
     memory: 1.2Gi
-
-# 服务治理相关配置
-hzero:
-  HZERO_NODE_GROUP_ID: 0
-  HZERO_PRODUCT_CODE: DEFAULT
-  HZERO_PRODUCT_VERSION_CODE: DEFAULT
-  HZERO_PRODUCT_ENV_CODE: DEFAULT
-  HZERO_SERVICE_VERSION_CODE: DEFAULT
